@@ -1,7 +1,7 @@
 id: you_shall_pass
 title: You Shall Pass
 description: "Create a GH Action to run your testing quite on each PR"
-summary: ""
+summary: "Quest Summary"
 level: intermediate
 steps:
 - download_yml

@@ -54,9 +54,9 @@ trigger:
             - actionId: bot_message
               params:
                 person: keen
-                  messages:
-                  - text: "Nice job!"
-                    delay: 1000
+                messages:
+                - text: "Nice job!"
+                  delay: 1000
             - actionId: finish_step
           
 

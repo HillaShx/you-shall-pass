@@ -28,6 +28,7 @@ trigger:
                 params:
                   person: keen
                   message: "On it, I'll review the changes right away."
+          github_pr_workflow_complete_success:
             if:
               conditions:
               - conditionId: github_is_file_added

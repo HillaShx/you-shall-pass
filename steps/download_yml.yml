@@ -43,11 +43,11 @@ trigger:
                   params:
                     person: keen
                     message: "Looking good! You can merge the PR now."
-            else:
-              - actionId: github_pr_reject
-                params:
-                  person: keen
-                  message: "Make sure you added the correct files in the correct paths"
+              else:
+                - actionId: github_pr_reject
+                  params:
+                    person: keen
+                    message: "Make sure you added the correct files in the correct paths"
           github_pr_merged:
             do:
             - actionId: bot_message

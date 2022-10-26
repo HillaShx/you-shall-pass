@@ -5,6 +5,7 @@ summary: "Quest Summary"
 level: intermediate
 steps:
 - download_yml
+- hg_actions_troubleshooting
 duration: 1.5
 skills:
 - devops

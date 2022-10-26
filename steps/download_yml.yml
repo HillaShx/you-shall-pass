@@ -58,8 +58,3 @@ trigger:
                 - text: "Nice job!"
                   delay: 1000
             - actionId: finish_step
-
-
-Step yaml error at steps/download_yml.yml
-
-- "trigger.flowNode.switch.cases.github_pr_workflow_complete_success.if.else" must be of type object

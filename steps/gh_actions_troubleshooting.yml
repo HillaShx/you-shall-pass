@@ -11,10 +11,6 @@ startFlow:
       messages:
       - text: It looks like the files were added but the Github Actions in the workflow didn't run. I think we have everything we need. Please check what the problem is and fix it. Open a new PR when you're done. 
         delay: 1500
-githubActions:
-  frontend:
-    capabilities:
-    testFile:
 trigger:
   type: github_pr_lifecycle_status
   flowNode:

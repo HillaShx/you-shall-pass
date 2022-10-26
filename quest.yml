@@ -4,7 +4,7 @@ description: "Automate code testing with Github Actions for continuous peace of 
 summary: "Quest Summary"
 level: intermediate
 steps:
-- download_yml
+- gh_actions_download_yml
 - gh_actions_troubleshooting
 - gh_actions_fixing_bug_pr
 duration: 1.5

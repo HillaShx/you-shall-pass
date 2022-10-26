@@ -29,13 +29,25 @@ trigger:
                   person: keen
                   message: "On it, I'll review the changes right away."
           github_pr_workflow_complete_success:
-            do:
-              - actionId: bot_message
+            if:
+              conditions:
+                - conditionId: github_is_file_added
+                  params:
+                    fileName: .github/workflows/ci_testing.yml
+                - conditionId: github_is_file_added
+                  params:
+                    fileName: src/tests/ci.test.js
+              then:
+                do:
+                - actionId: github_pr_approve
+                  params:
+                    person: keen
+                    message: "Looking good! You can merge the PR now."
+            else:
+              - actionId: github_pr_reject
                 params:
                   person: keen
-                  messages:
-                  - text: "do executed"
-                    delay: 1000
+                  message: "Make sure you added the correct files in the correct paths"
           github_pr_merged:
             do:
             - actionId: bot_message

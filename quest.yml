@@ -4,7 +4,7 @@ description: "Create a GH Action to run your testing quite on each PR"
 summary: ""
 level: intermediate
 steps:
-- 
+- download_yml
 duration: 1.5
 skills:
 - devops

@@ -45,9 +45,9 @@ trigger:
               then:
                 do:
                 - actionId: github_pr_approve
-                params:
-                  person: keen
-                  message: "Looking good! You can merge the PR now."
+                  params:
+                    person: keen
+                    message: "Looking good! You can merge the PR now."
           github_pr_merged:
             do:
             - actionId: bot_message

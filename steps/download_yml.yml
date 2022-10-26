@@ -38,7 +38,7 @@ trigger:
                     fileName: .github/workflows/ci_testing.yml
                 - conditionId: github_is_file_added
                   params:
-                    fileName: src/tests/ci.test.js
+                    fileName: frontend/src/tests/ci.test.js
               then:
                 do:
                 - actionId: github_pr_approve

@@ -1,14 +1,16 @@
 id: gh_actions_download_yml
 hints:
+  - The 'ci_testing.yml' should be placed in the '.github/workflows/' directory.
+  - The 
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "Let's create a new CI flow to run our tests on each PR"
+      - text: Hey there, we are planning to deploy a new feature and we want to automate all of the necessary tests we need to run for this feature. We should be able to do this with Github Actions. 
         delay: 2000
-      - text: "Download [this yml file](), and [this test file](), then add it to a new branch, push to GH and open a PR."
+      - text: :instruction[Here are [the tests] we need to run, and this is [the YAML file]() you’ll need to build the workflow. Please push these files to the repo and open a PR.]{block=true} 
         delay: 3500
 trigger:
   type: github_pr_lifecycle_status
@@ -26,7 +28,7 @@ trigger:
                     delay: 1000
               - actionId: github_pr_comment
                 params:
-                  person: keen
+                  person: keencc
                   message: "On it, I'll review the changes right away."
           github_pr_workflow_complete_success:
             if:
@@ -55,6 +57,6 @@ trigger:
               params:
                 person: keen
                 messages:
-                - text: "Nice job!"
+                - text: Nice job!
                   delay: 1000
             - actionId: finish_step

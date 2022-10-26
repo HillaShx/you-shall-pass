@@ -1,10 +1,12 @@
 id: you_shall_pass
 title: You Shall Pass
-description: "Create a GH Action to run your testing quite on each PR"
+description: "Automate code testing with Github Actions for continuous peace of mind. "
 summary: "Quest Summary"
 level: intermediate
 steps:
 - gh_actions_download_yml
+- gh_actions_troubleshooting
+- gh_actions_fixing_bug_pr
 duration: 1.5
 skills:
 - devops

@@ -1,22 +1,20 @@
-id: funneldrop_fixing_bug_pr
+id: gh_actions_troubleshooting
 learningObjectives: 
-- Fixing a bug 
+-  Troubleshooting Test Failures 
 hints:
-- Try to inspect the problematic view and see where it is on the screen
+- Once pushed to the repository, the workflow YAML should run the tests immediately when a new PR is opened. Try checking if there is a problem with the file. 
 startFlow:
   do:
   - actionId: bot_message
     params:
       person: keen
       messages:
-      - text: "OK, I think we have everything we need. Can you please **fix the code** and **open a PR**, so we can release a new version to production?"
+      - text: It looks like the files were added but the Github Actions in the workflow didn't run. I think we have everything we need. Please check what the problem is and fix it. Open a new PR when you're done. 
         delay: 1500
 githubActions:
   frontend:
     capabilities:
-    - jest-puppeteer
-    - puppeteer
-    testFile: "profile.test.js"
+    testFile:
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
@@ -29,36 +27,36 @@ trigger:
             params:
               person: keen
               messages:
-              - text: "On it, I'll review the changes right away."
+              - text: Got it. Checking the changes now.
                 delay: 1000
           - actionId: github_pr_comment
             params:
               person: keen
-              message: "On it, I'll review the changes right away."
+              message: Got it. Checking the changes now.
         github_pr_workflow_complete_success:
           do:
           - actionId: bot_message
             params:
               person: keen
               messages:
-              - text: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+              - text: Nice work, @${user.githubuser}! You can now merge the PR.
                 delay: 2000
           - actionId: github_pr_approve
             params:
               person: keen
-              message: "Nailed it! Excellent job @${user.githubuser}! You can now merge the PR."
+              message: Nice work, @${user.githubuser}! You can now merge the PR.
         github_pr_workflow_complete_failure:
           do:
           - actionId: bot_message
             params:
               person: keen
               messages:
-              - text: "Make sure your fix passes all the checks, then try again please."
+              - text: Looks like this code change didn’t fix the problem. Can you take a second look?
                 delay: 3000
           - actionId: github_pr_reject
             params:
               person: keen
-              message: "Looks like this code change didn’t fix the problem. Can you take a second look?"
+              message: Looks like this code change didn’t fix the problem. Can you take a second look?
         github_pr_merged:
           do:
           - actionId: finish_step
